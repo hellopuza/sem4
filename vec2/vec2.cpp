@@ -108,6 +108,30 @@ vec2 vec2::normalized() const
     return *this / magnitute();
 }
 
+vec2& vec2::rotate(float angle)
+{
+    return *this = vec2(x * std::cos(angle) - y * std::sin(angle),
+                        x * std::sin(angle) + y * std::cos(angle));
+}
+
+vec2 vec2::rotated(float angle) const
+{
+    return vec2(x * std::cos(angle) - y * std::sin(angle),
+                x * std::sin(angle) + y * std::cos(angle));
+}
+
+std::ostream& operator<<(std::ostream& os, const vec2& v)
+{
+    os << "(" << v.x << ", " << v.y << ")";
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, vec2& v)
+{
+    is >> v.x >> v.y;
+    return is;
+}
+
 vec2 operator * (float k, const vec2& v)
 {
     return v * k;
@@ -116,6 +140,11 @@ vec2 operator * (float k, const vec2& v)
 float dot(const vec2& u, const vec2& v)
 {
     return u.x * v.x + u.y * v.y;
+}
+
+float cross(const vec2& u, const vec2& v)
+{
+    return u.x * v.y - u.y * v.x;
 }
 
 vec2 sign(const vec2& v)

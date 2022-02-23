@@ -1,25 +1,38 @@
 #include "vec2.h"
-#include <iostream>
+#include <cmath>
 
 int main()
 {
     vec2 a(1.0F, 2.0F);
-    vec2 b(-1.0F, 1.0F);
-    vec2 c;
 
-    c = a + b;
-    std::cout << c.x << " " << c.y << "\n";
+    std::cout << a << "\n\n";
 
-    c = a - b;
-    std::cout << c.x << " " << c.y << "\n";
+    std::cout << a + vec2(1.0F, -1.0F) << "\n";
+    std::cout << a - vec2(1.0F, -1.0F) << "\n";
+    std::cout << a * vec2(1.0F, -1.0F) << "\n";
+    std::cout << a / vec2(1.0F, -1.0F) << "\n\n";
 
-    c = a * b;
-    std::cout << c.x << " " << c.y << "\n";
+    std::cout << a * 2.0F << "\n";
+    std::cout << a / 2.0F << "\n\n";
 
-    c = a / b;
-    std::cout << c.x << " " << c.y << "\n";
+    std::cout << (a += vec2(1.0F, -1.0F)) << "\n";
+    std::cout << (a -= vec2(1.0F, -1.0F)) << "\n";
+    std::cout << (a *= vec2(1.0F, -1.0F)) << "\n";
+    std::cout << (a /= vec2(1.0F, -1.0F)) << "\n\n";
 
-    std::cout << dot(a, b) << "\n";
+    std::cout << (a *= 2.0F) << "\n";
+    std::cout << (a /= 2.0F) << "\n\n";
+
+    std::cout << -a << "\n\n";
+
+    std::cout << (a == vec2(1.0F, 2.0F)) << "\n";
+    std::cout << (a != vec2(1.0F, 1.0F)) << "\n\n";
+
+    std::cout << a.magnitute2() << "\n";
+    std::cout << a.magnitute() << "\n\n";
+
+    std::cout << a.normalized() << "\n";
+    std::cout << a.rotated(std::atan(1.0F) * 2.0F) << "\n\n";
 
     return 0;
 }
