@@ -31,7 +31,7 @@ void Field::draw(sf::RenderTarget& target, sf::RenderStates states) const
                 vec2f delta;
                 for (const auto& other : *charges)
                 {
-                    delta += (end - other.position) * other.value / std::pow((end - other.position).magnitute(), 3.0F);
+                    delta += std::copysign(1.0F, charge.value) * (end - other.position) * other.value / std::pow((end - other.position).magnitute(), 3.0F);
                 }
                 end += delta.normalized() * FIELD_LINE_LEN;
             }

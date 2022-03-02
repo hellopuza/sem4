@@ -41,8 +41,6 @@ int main()
             triangle.move(sf::Vector2f(0.0F, 4.0F));
         }
 
-        sf::sleep(sf::seconds(0.1F));
-
         window.clear();
         window.draw(triangle);
         window.display();

@@ -51,7 +51,7 @@ int main()
             else if (event.type == sf::Event::MouseWheelMoved)
             {
                 sf::Vector2i pos = sf::Mouse::getPosition(window);
-                charge_set.change(vec2f(pos.x, pos.y), static_cast<float>(event.mouseWheel.delta));
+                charge_set.change(vec2f(pos.x, pos.y), 0.4F * static_cast<float>(event.mouseWheel.delta));
             }
         }
 
